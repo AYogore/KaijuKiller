@@ -11,7 +11,7 @@ public class gameFlow : MonoBehaviour
     private int platformLength;
     void Start()
     {
-        nextTileSpawn.z = platformLength;
+        nextTileSpawn.z = 30;
         StartCoroutine(spawnTile());
     }
 
@@ -24,8 +24,15 @@ public class gameFlow : MonoBehaviour
     IEnumerator spawnTile()
     {
         yield return new WaitForSeconds(1);
-        Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
-        nextTileSpawn.z += platformLength;
+
+        for(int i =1; i <= 10; i++)
+        {
+            Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+            nextTileSpawn.z += 5;
+        }
+        
+       // Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+        //nextTileSpawn.z += 5;
         StartCoroutine(spawnTile());
 
         /* destory object after 5 seconds

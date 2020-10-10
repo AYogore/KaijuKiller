@@ -23,11 +23,19 @@ public class PlayerMove : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            rb.velocity = new Vector3(-1, 0, moveSpeed);
+            rb.velocity = new Vector3(-10, 0, moveSpeed);
+            StartCoroutine(stopLaneChange());
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            rb.velocity = new Vector3(1, 0, moveSpeed);
+            rb.velocity = new Vector3(10, 0, moveSpeed);
+            StartCoroutine(stopLaneChange());
         }
+    }
+
+    IEnumerator stopLaneChange()
+    {
+        yield return new WaitForSeconds(0.5f);
+        rb.velocity = new Vector3(0, 0, moveSpeed);
     }
 }
