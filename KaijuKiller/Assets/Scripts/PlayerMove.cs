@@ -12,7 +12,8 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent < Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        rb.velocity = new Vector3(0, 0, moveSpeed);
     }
 
    
@@ -20,8 +21,13 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.A))
         {
+            rb.velocity = new Vector3(-1, 0, moveSpeed);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb.velocity = new Vector3(1, 0, moveSpeed);
         }
     }
 }
