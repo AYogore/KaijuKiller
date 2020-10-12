@@ -11,7 +11,7 @@ public class gameFlow : MonoBehaviour
     private int platformLength;
     void Start()
     {
-        nextTileSpawn.z = 30;
+        nextTileSpawn.z = 160;
         StartCoroutine(spawnTile());
     }
 
