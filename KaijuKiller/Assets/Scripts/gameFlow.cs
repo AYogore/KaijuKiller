@@ -7,8 +7,13 @@ public class gameFlow : MonoBehaviour
     [SerializeField]
     private Transform tileObj;
     private Vector3 nextTileSpawn;
+
+    [SerializeField]
+    private Transform obsObj;
+    private Vector3 nextObsSpawn;
     [SerializeField]
     private int platformLength;
+    private int randX;
     void Start()
     {
         nextTileSpawn.z = 160;
@@ -25,9 +30,14 @@ public class gameFlow : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
+        randX = Random.Range(-1, 2) * 5 - 1;
+        nextObsSpawn = nextTileSpawn;
+        nextObsSpawn.x = randX;
+
         for(int i =1; i <= 10; i++)
         {
             Instantiate(tileObj, nextTileSpawn, tileObj.rotation);
+            Instantiate(obsObj, nextObsSpawn, obsObj.rotation);
             nextTileSpawn.z += 5;
         }
         
