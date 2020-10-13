@@ -11,6 +11,7 @@ public class gameFlow : MonoBehaviour
     [SerializeField]
     private Transform obsObj;
     private Vector3 nextObsSpawn;
+
     [SerializeField]
     private int platformLength;
     private int randX;
