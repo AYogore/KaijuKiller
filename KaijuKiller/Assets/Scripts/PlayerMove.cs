@@ -59,9 +59,9 @@ public class PlayerMove : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                rb.velocity = new Vector3(0, jumpSpeed, moveSpeed);
-                isJumping = true;
-                StartCoroutine(stopJump());
+                //rb.velocity = new Vector3(0, jumpSpeed, moveSpeed);
+                //isJumping = true;
+                //StartCoroutine(stopJump());
             }
         }
         
