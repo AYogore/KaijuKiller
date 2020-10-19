@@ -9,53 +9,72 @@ public class PlayerMove : MonoBehaviour
     private float moveSpeed = 10;
 
     [SerializeField]
+    private float accelerationForce = 10.0f;
+
+    [SerializeField]
+    private float moveHorizontalSpeed = 10;
+
+    
     private Rigidbody rb;
 
+    //private Vector3 horizontalMovement;
+    private Vector2 input;
     private int bounds;
-    private bool isLaneChanging;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        isLaneChanging = false;
-        rb.velocity = new Vector3(0, 0, moveSpeed);
+        //rb.velocity = new Vector3(0, 0, moveSpeed);
         bounds = 0;
+
+        //horizontalInput = Input.GetAxis("Horizontal") * moveHorizontalSpeed * Time.deltaTime;
+        
+
+       
     }
 
    
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if(bounds > -1 && !isLaneChanging)
+        var inputDirection = new Vector3(input.x, 0, input.y);
+
+        //this.transform.position.y = 0;
+        rb.AddForce(inputDirection* accelerationForce, ForceMode.Acceleration);
+
+        /*
+    if(bounds > -1 && !isLaneChanging)
+    {
+        if(Input.GetKeyDown(KeyCode.A))
         {
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                isLaneChanging = true;
-                rb.velocity = new Vector3(-10, 0, moveSpeed);
-                StartCoroutine(stopLaneChange(-1));
-                //bounds -= 1; //bug
-            }
+            isLaneChanging = true;
+            rb.velocity = new Vector3(-10, 0, moveSpeed);
+            StartCoroutine(stopLaneChange(-1));
+            //bounds -= 1; //bug
         }
-        
-        if(bounds < 1 && !isLaneChanging)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                isLaneChanging = true;
-                rb.velocity = new Vector3(10, 0, moveSpeed);
-                StartCoroutine(stopLaneChange(1));
-                //bounds += 1; //bug
-            }
-        }
-        
     }
 
-    IEnumerator stopLaneChange(int i)
+    if(bounds < 1 && !isLaneChanging)
     {
-        yield return new WaitForSeconds(0.5f);
-        rb.velocity = new Vector3(0, 0, moveSpeed);
-        bounds += i;
-        isLaneChanging = false;
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            isLaneChanging = true;
+            rb.velocity = new Vector3(10, 0, moveSpeed);
+            StartCoroutine(stopLaneChange(1));
+            //bounds += 1; //bug
+        }
     }
+    */
+    }
+    private void Update()
+    {
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
+
+    }
+
+    
 }
