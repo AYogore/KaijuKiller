@@ -18,7 +18,7 @@ public class DestroyAtInterval : MonoBehaviour
 
     IEnumerator destroyTile()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         Destroy(gameObject);
     }
 
