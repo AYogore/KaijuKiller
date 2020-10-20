@@ -14,13 +14,15 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float jumpSpeed;
 
+    private Vector2 input;
     private int bounds;
     private bool isLaneChanging;
     private bool isJumping;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //change to enum state
         isLaneChanging = false;
         isJumping = false;
         rb.velocity = new Vector3(0, 0, moveSpeed);
@@ -28,11 +30,17 @@ public class PlayerMove : MonoBehaviour
         
     }
 
-   
+    private void FixedUpdate()
+    {
+        var inputDirection = new Vector3(input.x, 0, moveSpeed);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        input.x = Input.GetAxis("Horizontal");
+        /*
         if(bounds > -1 && !isLaneChanging)
         {
             if(Input.GetKeyDown(KeyCode.A))
@@ -64,6 +72,7 @@ public class PlayerMove : MonoBehaviour
                 //StartCoroutine(stopJump());
             }
         }
+        */
         
     }
 
