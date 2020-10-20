@@ -9,6 +9,9 @@ public class PlayerMove : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField]
+    private float horizontalAccelerationForce;
+
+    [SerializeField]
     private Rigidbody rb;
 
     [SerializeField]
@@ -32,7 +35,11 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var inputDirection = new Vector3(input.x, 0, moveSpeed);
+        var inputDirection = new Vector3(input.x * horizontalAccelerationForce, 0, moveSpeed);
+
+        //rb.AddForce(inputDirection * Time.deltaTime, ForceMode.Impulse);
+        rb.velocity = inputDirection;
+
     }
 
 
