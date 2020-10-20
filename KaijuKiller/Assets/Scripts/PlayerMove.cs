@@ -21,6 +21,8 @@ public class PlayerMove : MonoBehaviour
     private int bounds;
     private bool isLaneChanging;
     private bool isJumping;
+    [SerializeField]
+    private float gravityForce;
     // Start is called before the first frame update
     private void Start()
     {
@@ -30,15 +32,21 @@ public class PlayerMove : MonoBehaviour
         isJumping = false;
         rb.velocity = new Vector3(0, 0, moveSpeed);
         bounds = 0;
+
         
     }
 
     private void FixedUpdate()
     {
+        //side scroll
         var inputDirection = new Vector3(input.x * horizontalAccelerationForce, 0, moveSpeed);
-
-        //rb.AddForce(inputDirection * Time.deltaTime, ForceMode.Impulse);
         rb.velocity = inputDirection;
+
+        //jump
+        //gravity
+        var gravity = new Vector3(0, gravityForce, 0);
+        rb.AddForce(gravity, ForceMode.Impulse);
+        
 
     }
 
@@ -47,6 +55,12 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         input.x = Input.GetAxis("Horizontal");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange);
+
+            Debug.Log("JUMP");
+        }
         /*
         if(bounds > -1 && !isLaneChanging)
         {
@@ -80,7 +94,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
         */
-        
+
     }
 
     IEnumerator stopLaneChange(int i)
