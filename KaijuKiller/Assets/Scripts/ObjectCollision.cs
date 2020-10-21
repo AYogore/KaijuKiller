@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ObjectCollision : MonoBehaviour
 {
     [SerializeField]
     private GameObject deathScreen;
 
-    PlayerMove playerMove;
+    [SerializeField]
+    private Button restartButton;
+    CanvasGroup restartButtonCanvasGroup;
+    CanvasGroup deathScreenCanvasGroup;
 
     void Start()
     {
-        deathScreen.SetActive(false);
-        playerMove = GetComponent<PlayerMove>();
+        deathScreenCanvasGroup = deathScreen.GetComponent<CanvasGroup>();
+        restartButtonCanvasGroup = restartButton.GetComponent<CanvasGroup>();
+        deathScreenCanvasGroup.alpha = 0;
+        restartButtonCanvasGroup.alpha = 0;
+
     }
 
     // Update is called once per frame
@@ -25,9 +33,11 @@ public class ObjectCollision : MonoBehaviour
     {
         if(other.tag == "Obstacle")
         {
-            //playerMove.move;
-            deathScreen.SetActive(true);
-        
+            Time.timeScale = 0;
+            deathScreenCanvasGroup.alpha = 1;
+            restartButtonCanvasGroup.alpha = 1;
+            
+
         }
     }
 }

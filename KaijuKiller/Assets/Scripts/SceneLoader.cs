@@ -19,5 +19,6 @@ public class SceneLoader : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("PlayLevel");
+        Time.timeScale = 1;
     }
 }
