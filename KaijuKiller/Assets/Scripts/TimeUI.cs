@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimeUI : MonoBehaviour
 {
-    public Text timeText;
+    //public Text timeText;
+    public TextMeshProUGUI timeText;
     private float timer;
     void Start()
     {
@@ -22,7 +24,8 @@ public class TimeUI : MonoBehaviour
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timeText.SetText(string.Format("{0:00}:{1:00}", minutes, seconds));
 
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        //timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
