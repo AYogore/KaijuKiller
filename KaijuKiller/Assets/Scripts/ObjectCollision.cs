@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class ObjectCollision : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class ObjectCollision : MonoBehaviour
     private Button restartButton;
     CanvasGroup restartButtonCanvasGroup;
     CanvasGroup deathScreenCanvasGroup;
+
+    [SerializeField]
+    TextMeshProUGUI scoreText;
 
     [SerializeField]
     SpawnManager spawnManager;
@@ -42,6 +46,12 @@ public class ObjectCollision : MonoBehaviour
         if (other.tag == "Road")
         {
             spawnManager.SpawnTriggerEntered();
+        }
+
+        if(other.tag == "PickUp")
+        {
+            Debug.Log("HitPickup");
+            
         }
 
         

@@ -6,10 +6,12 @@ public class SpawnManager : MonoBehaviour
 {
     RoadSpawner roadSpawner;
     CarSpawner carSpawner;
+    PickUpSpawner pickUpSpawner;
     void Start()
     {
         roadSpawner = GetComponent<RoadSpawner>();
         carSpawner = GetComponent<CarSpawner>();
+        pickUpSpawner = GetComponent<PickUpSpawner>();
     }
 
     
@@ -17,5 +19,6 @@ public class SpawnManager : MonoBehaviour
     {
         roadSpawner.MoveRoad();
         carSpawner.SpawnCar();
+        pickUpSpawner.SpawnPickUp();
     }
 }
