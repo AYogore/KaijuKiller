@@ -43,5 +43,12 @@ public class CarSpawner : MonoBehaviour
         roadOffset += roadLength;
 
         Instantiate(randCar, carSpawnLocation, randCar.transform.rotation);
+
+        
+        
+
     }
+
+    
+
 }
