@@ -23,10 +23,14 @@ public class PlayerMove : MonoBehaviour
     private bool isJumping;
     [SerializeField]
     private float gravityForce;
+
+    Animator anim;
     // Start is called before the first frame update
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //getting anim component in player body
+        anim = GetComponent<Animator>();
         //change to enum state
         isLaneChanging = false;
         isJumping = false;
@@ -58,42 +62,17 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange);
-
+            //set anim bool is jumping
+            anim.SetBool("isJumping", true);
             Debug.Log("JUMP");
         }
-        /*
-        if(bounds > -1 && !isLaneChanging)
+        else
         {
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                isLaneChanging = true;
-                rb.velocity = new Vector3(-10, 0, moveSpeed);
-                StartCoroutine(stopLaneChange(-1));
-                //bounds -= 1; //bug
-            }
-        }
-        
-        if(bounds < 1 && !isLaneChanging)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                isLaneChanging = true;
-                rb.velocity = new Vector3(10, 0, moveSpeed);
-                StartCoroutine(stopLaneChange(1));
-                //bounds += 1; //bug
-            }
+            //reset to running when not jumping
+            anim.SetBool("isJumping", false);
+
         }
 
-        if(isJumping == false)
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                //rb.velocity = new Vector3(0, jumpSpeed, moveSpeed);
-                //isJumping = true;
-                //StartCoroutine(stopJump());
-            }
-        }
-        */
 
     }
 
