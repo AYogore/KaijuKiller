@@ -14,6 +14,8 @@ public class ObjectCollision : MonoBehaviour
     CanvasGroup restartButtonCanvasGroup;
     CanvasGroup deathScreenCanvasGroup;
 
+    [SerializeField]
+    SpawnManager spawnManager;
     void Start()
     {
         deathScreenCanvasGroup = deathScreen.GetComponent<CanvasGroup>();
@@ -36,8 +38,13 @@ public class ObjectCollision : MonoBehaviour
             Time.timeScale = 0;
             deathScreenCanvasGroup.alpha = 1;
             restartButtonCanvasGroup.alpha = 1;
-            
-
         }
+        if (other.tag == "Road")
+        {
+            spawnManager.SpawnTriggerEntered();
+        }
+
+        
+
     }
 }
