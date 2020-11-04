@@ -7,7 +7,7 @@ public class DestroyAtInterval : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(destroyTile());
+        Destroy(gameObject, 5.0f);
     }
 
     // Update is called once per frame
@@ -16,11 +16,7 @@ public class DestroyAtInterval : MonoBehaviour
 
     }
 
-    IEnumerator destroyTile()
-    {
-        yield return new WaitForSeconds(15);
-        Destroy(gameObject);
-    }
+    
 
     
 }
