@@ -4306,6 +4306,7 @@ GameObject:
   - component: {fileID: 1344871064}
   - component: {fileID: 1344871065}
   - component: {fileID: 1344871066}
+  - component: {fileID: 1344871067}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -4386,6 +4387,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUps:
   - {fileID: 7255139180653899770, guid: 3836bdcc130791441af6383c77a9b95b, type: 3}
+--- !u!114 &1344871067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344871061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c661882b372a7244395b055798eae81f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 23037682516987206, guid: 6b86b35ef008a6841a008845a0b99a4f, type: 3}
 --- !u!43 &1399103972
 Mesh:
   m_ObjectHideFlags: 0
