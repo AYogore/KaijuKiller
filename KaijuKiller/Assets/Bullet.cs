@@ -17,9 +17,16 @@ public class Bullet : MonoBehaviour
         rb.velocity = Vector3.forward * bulletSpeed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+   
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
-        Destroy(collision.gameObject);
+        if(other.tag == "Obstacle")
+        {
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+        }
+        
+
     }
 }
