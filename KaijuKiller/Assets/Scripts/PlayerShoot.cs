@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour
     private GameObject bulletPrefab;
 
     [SerializeField]
-    private Vector3 firepoint;
+    private GameObject firepoint;
 
     
     private int fireRate = 2;
@@ -18,7 +18,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //Instantiate(bulletPrefab, firepoint, bulletPrefab.transform.rotation);
+            Instantiate(bulletPrefab, firepoint.transform.position, bulletPrefab.transform.rotation);
             Debug.Log("Pew");
         }
     }

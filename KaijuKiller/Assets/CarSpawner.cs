@@ -42,8 +42,13 @@ public class CarSpawner : MonoBehaviour
         Vector3 carSpawnLocation = new Vector3(randX, 0, roadOffset);
         roadOffset += roadLength;
 
-        Instantiate(randCar, carSpawnLocation, randCar.transform.rotation);
+        //car randomizer
+        int carRandom = Random.Range(0, 20); //d20 cuz dnd lawl
 
+        if (carRandom >= 8)
+        {
+            Instantiate(randCar, carSpawnLocation, randCar.transform.rotation);
+        }
         
         
 

@@ -37,7 +37,7 @@ public class ObjectCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Obstacle")
+        if(other.tag == "Obstacle" || other.tag == "Enemy")
         {
             Time.timeScale = 0;
             deathScreenCanvasGroup.alpha = 1;

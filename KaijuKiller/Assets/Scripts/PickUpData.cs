@@ -11,10 +11,13 @@ public class PickUpData : MonoBehaviour
         
     }
 
-    
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
+        if(other.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
