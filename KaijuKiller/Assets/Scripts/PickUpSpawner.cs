@@ -42,8 +42,13 @@ public class PickUpSpawner : MonoBehaviour
         Vector3 pickUpSpawnLocation = new Vector3(randX, 1, roadOffset);
         roadOffset += roadLength;
 
-        Instantiate(randPickUp, pickUpSpawnLocation, randPickUp.transform.rotation);
+        //pickUp randomizer
+        int pickUpRandom = Random.Range(0, 20); //d20 cuz dnd lawl
 
+        if (pickUpRandom >= 8)
+        {
+            Instantiate(randPickUp, pickUpSpawnLocation, randPickUp.transform.rotation);
+        }
 
 
 

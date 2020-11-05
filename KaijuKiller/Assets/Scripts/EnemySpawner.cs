@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
         //random X in bounds
         int randX = Random.Range(leftBound, rightBound);
 
-        Vector3 enemySpawnLocation = new Vector3(randX, 1, roadOffset);
+        Vector3 enemySpawnLocation = new Vector3(randX, 0, roadOffset);
         roadOffset += roadLength;
 
 
