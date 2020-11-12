@@ -18,6 +18,7 @@ public class PickUpData : MonoBehaviour
         if(other.tag == "Player")
         {
             Destroy(this.gameObject);
+            ScoreUI.IncrementScore(score);
         }
     }
 }
