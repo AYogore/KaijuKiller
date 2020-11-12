@@ -11,25 +11,33 @@ public class PlayerShoot : MonoBehaviour
     private GameObject firepoint;
 
     
-    private int fireRate = 2;
-
+    private float fireRate = 2;
+    private bool canShoot = true;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canShoot == true)
+        {
+            StartCoroutine(Fire());
+        }
+
+        /*OG Simple fire code
+         * if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bulletPrefab, firepoint.transform.position, bulletPrefab.transform.rotation);
             Debug.Log("Pew");
         }
+        */
+        
+
     }
 
     IEnumerator Fire()
     {
-        yield return new WaitForSeconds(1 / fireRate);
-        if (Input.GetButtonDown("Fire1"))
-        {
-            //Instantiate(bulletPrefab, firepoint, bulletPrefab.transform.rotation);
-            Debug.Log("Pew");
-        }
+        Instantiate(bulletPrefab, firepoint.transform.position, bulletPrefab.transform.rotation);
+        canShoot = false;
+        float wait = 1 / fireRate;
+        yield return new WaitForSeconds(wait);
+        canShoot = true;
     }
 }
