@@ -59,9 +59,11 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         input.x = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
         {
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange);
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            isJumping = true; // switch to states soon
+
             //set anim bool is jumping
             anim.SetBool("isJumping", true);
             Debug.Log("JUMP");
@@ -74,6 +76,11 @@ public class PlayerMove : MonoBehaviour
         }
 
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isJumping = false;
     }
 
     IEnumerator stopLaneChange(int i)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Bullet : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             Destroy(other.gameObject);
+            ScoreUI.IncrementScore();
         }
 
 
