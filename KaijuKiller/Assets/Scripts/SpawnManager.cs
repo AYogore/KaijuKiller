@@ -8,12 +8,14 @@ public class SpawnManager : MonoBehaviour
     CarSpawner carSpawner;
     PickUpSpawner pickUpSpawner;
     EnemySpawner enemySpawner;
+    EnvironmentSpawn environmentSpawner;
     void Start()
     {
         roadSpawner = GetComponent<RoadSpawner>();
         carSpawner = GetComponent<CarSpawner>();
         pickUpSpawner = GetComponent<PickUpSpawner>();
         enemySpawner = GetComponent<EnemySpawner>();
+        environmentSpawner = GetComponent<EnvironmentSpawn>();
     }
 
     
@@ -23,5 +25,6 @@ public class SpawnManager : MonoBehaviour
         carSpawner.SpawnCar();
         pickUpSpawner.SpawnPickUp();
         enemySpawner.SpawnEnemy();
+        environmentSpawner.SpawnTile();
     }
 }
