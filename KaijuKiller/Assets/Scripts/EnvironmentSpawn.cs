@@ -22,7 +22,8 @@ public class EnvironmentSpawn : MonoBehaviour
         rightBound = 6;
         //spawn location of road for cars
         roadLength = 30.0f;
-        roadOffset = 140.0f;
+        roadOffset = 300.0f;
+        
     }
 
 

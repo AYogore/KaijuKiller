@@ -14,7 +14,7 @@ public class RoadSpawner : MonoBehaviour
     private void Start()
     {
         roadLength = 30.0f;
-        roadOffset = 110.0f;
+        roadOffset = 300.0f;
         offset = new Vector3(0, 0, roadOffset);
 
 
