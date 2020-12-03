@@ -24,6 +24,8 @@ public class ObjectCollision : MonoBehaviour
     {
         deathScreenCanvasGroup = deathScreen.GetComponent<CanvasGroup>();
         restartButtonCanvasGroup = restartButton.GetComponent<CanvasGroup>();
+
+        restartButton.interactable = false;
         deathScreenCanvasGroup.alpha = 0;
         restartButtonCanvasGroup.alpha = 0;
 
@@ -42,6 +44,8 @@ public class ObjectCollision : MonoBehaviour
             Time.timeScale = 0;
             deathScreenCanvasGroup.alpha = 1;
             restartButtonCanvasGroup.alpha = 1;
+            restartButton.interactable = true;
+
         }
         if (other.tag == "Road")
         {
