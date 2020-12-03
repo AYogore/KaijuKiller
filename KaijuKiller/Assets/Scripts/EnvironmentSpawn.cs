@@ -33,8 +33,8 @@ public class EnvironmentSpawn : MonoBehaviour
         GameObject randETile = eTiles[randomInt];
 
         //random X in bounds
-        int leftTileX = -15;
-        int rightTileX = 15;
+        int leftTileX = -40;
+        int rightTileX = 10;
 
         Vector3 eTileLSpawnLocation = new Vector3(leftTileX, 0, roadOffset);
         Vector3 eTileRSpawnLocation = new Vector3(rightTileX, 0, roadOffset);
