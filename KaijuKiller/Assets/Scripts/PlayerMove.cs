@@ -36,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         isJumping = false;
         rb.velocity = new Vector3(0, 0, moveSpeed);
         bounds = 0;
+         
 
         
     }
@@ -43,14 +44,14 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         //side scroll
-        var inputDirection = new Vector3(input.x * horizontalAccelerationForce, 0, moveSpeed);
+        var inputDirection = new Vector3(input.x * horizontalAccelerationForce, gravityForce, moveSpeed);
         rb.velocity = inputDirection;
 
         //jump
         //gravity
-        var gravity = new Vector3(0, gravityForce, 0);
-        rb.AddForce(gravity, ForceMode.Impulse);
         
+            var gravity = new Vector3(0, gravityForce, 0);
+            //rb.AddForce(gravity, ForceMode.Impulse);
 
     }
 
@@ -62,6 +63,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            
             isJumping = true; // switch to states soon
 
             //set anim bool is jumping
