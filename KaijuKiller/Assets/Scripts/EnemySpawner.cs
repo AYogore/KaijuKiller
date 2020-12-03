@@ -46,9 +46,11 @@ public class EnemySpawner : MonoBehaviour
         //randomizer so enemies dont always spawn
         int enemyRandom = Random.Range(0, 20); //d20 cuz dnd lawl
 
-        if(enemyRandom >= 8)
+        if(enemyRandom <= 4)
         {
             Instantiate(randPickUp, enemySpawnLocation, randPickUp.transform.rotation);
         }
+
+        
     }
 }
