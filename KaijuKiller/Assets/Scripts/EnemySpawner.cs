@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
         rightBound = 6;
         //spawn location of road for cars
         roadLength = 30.0f;
-        roadOffset = 140.0f;
+        roadOffset = 300.0f;
     }
 
     // Update is called once per frame
@@ -46,9 +46,11 @@ public class EnemySpawner : MonoBehaviour
         //randomizer so enemies dont always spawn
         int enemyRandom = Random.Range(0, 20); //d20 cuz dnd lawl
 
-        if(enemyRandom >= 8)
+        if(enemyRandom <= 4)
         {
             Instantiate(randPickUp, enemySpawnLocation, randPickUp.transform.rotation);
         }
+
+        
     }
 }

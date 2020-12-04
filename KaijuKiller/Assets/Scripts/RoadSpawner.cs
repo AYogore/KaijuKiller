@@ -14,7 +14,7 @@ public class RoadSpawner : MonoBehaviour
     private void Start()
     {
         roadLength = 30.0f;
-        roadOffset = 110.0f;
+        roadOffset = 300.0f;
         offset = new Vector3(0, 0, roadOffset);
 
 
@@ -37,11 +37,5 @@ public class RoadSpawner : MonoBehaviour
         movedRoad.transform.position = new Vector3(0, 0, newZ);
         roadGO.Add(movedRoad);
     }
-    /*
-    public void SpawnNewRoad()
-    {
-        Instantiate(roadTile, offset, roadTile.rotation);
-        offset.z += roadLength;
-    }
-    */
+    
 }

@@ -22,7 +22,8 @@ public class EnvironmentSpawn : MonoBehaviour
         rightBound = 6;
         //spawn location of road for cars
         roadLength = 30.0f;
-        roadOffset = 140.0f;
+        roadOffset = 300.0f;
+        
     }
 
 
@@ -33,8 +34,8 @@ public class EnvironmentSpawn : MonoBehaviour
         GameObject randETile = eTiles[randomInt];
 
         //random X in bounds
-        int leftTileX = -15;
-        int rightTileX = 15;
+        int leftTileX = -40;
+        int rightTileX = 10;
 
         Vector3 eTileLSpawnLocation = new Vector3(leftTileX, 0, roadOffset);
         Vector3 eTileRSpawnLocation = new Vector3(rightTileX, 0, roadOffset);
