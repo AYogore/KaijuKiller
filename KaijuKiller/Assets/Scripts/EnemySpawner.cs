@@ -42,11 +42,37 @@ public class EnemySpawner : MonoBehaviour
         Vector3 enemySpawnLocation = new Vector3(randX, 0, roadOffset);
         roadOffset += roadLength;
 
+        int spawnRate = 0;
+
+        if (ScoreUI.score == 0)
+        {
+            spawnRate = 0;
+        }
+        else if (ScoreUI.score >= 10)
+        {
+            spawnRate = 1;
+        }
+        
+        else if (ScoreUI.score >= 30)
+        {
+            spawnRate = 3;
+        }
+
+        else if (ScoreUI.score >= 50)
+        {
+            spawnRate = 5;
+        }
+        
+        else if (ScoreUI.score >= 70)
+        {
+            spawnRate = 7;
+        }
+
 
         //randomizer so enemies dont always spawn
-        int enemyRandom = Random.Range(0, 20); //d20 cuz dnd lawl
+        int enemyRandom = Random.Range(1, 20); //d20 cuz dnd lawl
 
-        if(enemyRandom <= 4)
+        if(enemyRandom <= spawnRate)
         {
             Instantiate(randPickUp, enemySpawnLocation, randPickUp.transform.rotation);
         }

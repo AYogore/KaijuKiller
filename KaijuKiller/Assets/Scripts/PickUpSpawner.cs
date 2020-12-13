@@ -43,9 +43,45 @@ public class PickUpSpawner : MonoBehaviour
         roadOffset += roadLength;
 
         //pickUp randomizer
-        int pickUpRandom = Random.Range(0, 20); //d20 cuz dnd lawl
 
-        if (pickUpRandom >= 8)
+        int spawnRate = 0;
+        
+        if(ScoreUI.score == 0)
+        {
+            spawnRate = 1;
+        }
+        else if(ScoreUI.score >= 20)
+        {
+            spawnRate = 2;
+        }
+        else if (ScoreUI.score >= 30)
+        {
+            spawnRate = 3;
+        }
+        else if (ScoreUI.score >= 40)
+        {
+            spawnRate = 4;
+        }
+        else if (ScoreUI.score >= 50)
+        {
+            spawnRate = 5;
+        }
+        else if (ScoreUI.score >= 60)
+        {
+            spawnRate = 6;
+        }
+        else if (ScoreUI.score >= 70)
+        {
+            spawnRate = 7;
+        }
+        else if (ScoreUI.score >= 80)
+        {
+            spawnRate = 8;
+        }
+
+
+        int pickUpRandom = Random.Range(0, 20);
+        if (pickUpRandom >= spawnRate)
         {
             Instantiate(randPickUp, pickUpSpawnLocation, randPickUp.transform.rotation);
         }

@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             Destroy(other.gameObject);
+            ScoreUI.score -= 5;
         }
 
         if (other.tag == "Enemy")

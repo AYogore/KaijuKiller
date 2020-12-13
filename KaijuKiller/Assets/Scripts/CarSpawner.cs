@@ -43,9 +43,32 @@ public class CarSpawner : MonoBehaviour
         roadOffset += roadLength;
 
         //car randomizer
-        int carRandom = Random.Range(0, 20); //d20 cuz dnd lawl
+        int carRandom = Random.Range(0, 20);
 
-        if (carRandom <= 8)
+        int spawnRate = 0;
+
+        if (ScoreUI.score == 0)
+        {
+            spawnRate = 0;
+        }
+        else if (ScoreUI.score >= 20)
+        {
+            spawnRate = 2;
+        }
+        
+        else if (ScoreUI.score >= 40)
+        {
+            spawnRate = 4;
+        }
+        
+        else if (ScoreUI.score >= 60)
+        {
+            spawnRate = 6;
+        }
+        
+        
+
+        if (carRandom <= spawnRate)
         {
             Instantiate(randCar, carSpawnLocation, randCar.transform.rotation);
         }

@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class ScoreUI : MonoBehaviour
 {
     
-    private static int score;
+    public static int score;
 
     [SerializeField]
     public TextMeshProUGUI scoreText;

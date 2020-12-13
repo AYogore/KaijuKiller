@@ -8,7 +8,7 @@ public class TimeUI : MonoBehaviour
 {
     //public Text timeText;
     public TextMeshProUGUI timeText;
-    private float timer;
+    public static float timer;
     void Start()
     {
         DisplayTime(0);
