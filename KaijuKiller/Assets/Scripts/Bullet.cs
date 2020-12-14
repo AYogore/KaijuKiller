@@ -32,7 +32,6 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
             FindObjectOfType<SoundManager>().Play("death");
 
             ScoreUI.IncrementScore();
