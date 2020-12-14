@@ -25,6 +25,8 @@ public class ObjectCollision : MonoBehaviour
 
     [SerializeField]
     SpawnManager spawnManager;
+
+    bool paused = false;
     void Start()
     {
         deathScreenCanvasGroup = deathScreen.GetComponent<CanvasGroup>();
@@ -43,7 +45,8 @@ public class ObjectCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+            paused = togglePause();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,8 +71,26 @@ public class ObjectCollision : MonoBehaviour
             Debug.Log("HitPickup");
             
         }
-
-        
-
     }
+
+    bool togglePause()
+    {
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            return (false);
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            deathScreenCanvasGroup.alpha = 1;
+            restartButtonCanvasGroup.alpha = 1;
+            quitButtonCanvasGroup.alpha = 1;
+            quitButton.interactable = true;
+            restartButton.interactable = true;
+            return (true);
+        }
+    }
+
+
 }
