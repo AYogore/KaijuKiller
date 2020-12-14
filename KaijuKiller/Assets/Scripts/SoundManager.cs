@@ -1,26 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]
-    private AudioSource deathSound;
-    [SerializeField]
-    private AudioSource coinSound;
-    [SerializeField]
-    private AudioSource boostSound;
-    
-    public void PlayDeath()
+    public Sound[] sounds;
+
+    void Awake()
     {
-        deathSound.Play();
+        foreach(Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+        }
     }
-    public void PlayCoin()
+
+    public void Play(string name)
     {
-        coinSound.Play();
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Play();
     }
-    public void PlayBoost()
-    {
-        boostSound.Play();
-    }
+
 }

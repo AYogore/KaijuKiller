@@ -17,6 +17,12 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float jumpSpeed;
 
+    [SerializeField]
+    private GameObject boostFX;
+
+    [SerializeField]
+    private SoundManager sm;
+
     private Vector2 input;
     private int bounds;
     private bool isLaneChanging;
@@ -36,6 +42,7 @@ public class PlayerMove : MonoBehaviour
         isJumping = false;
         rb.velocity = new Vector3(0, 0, moveSpeed);
         bounds = 0;
+        boostFX.SetActive(false);
          
 
         
@@ -68,12 +75,15 @@ public class PlayerMove : MonoBehaviour
 
             //set anim bool is jumping
             anim.SetBool("isJumping", true);
+            boostFX.SetActive(true);
+            FindObjectOfType<SoundManager>().Play("boost sound");
             Debug.Log("JUMP");
         }
         else
         {
             //reset to running when not jumping
             anim.SetBool("isJumping", false);
+
 
         }
 
@@ -83,6 +93,15 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isJumping = false;
+        boostFX.SetActive(false);
+    }
+
+    IEnumerator PlayBoostFX()
+    {
+        
+        yield return new WaitForSeconds(0.25f);
+        boostFX.SetActive(false);
+
     }
 
     IEnumerator stopLaneChange(int i)
