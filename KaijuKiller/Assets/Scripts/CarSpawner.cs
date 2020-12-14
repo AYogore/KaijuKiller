@@ -47,23 +47,23 @@ public class CarSpawner : MonoBehaviour
 
         int spawnRate = 0;
 
-        if (ScoreUI.score == 0)
+        if (ScoreUI.score == 5)
         {
-            spawnRate = 0;
+            spawnRate = 5;
         }
         else if (ScoreUI.score >= 20)
         {
-            spawnRate = 2;
+            spawnRate = 6;
         }
         
         else if (ScoreUI.score >= 40)
         {
-            spawnRate = 4;
+            spawnRate = 7;
         }
         
         else if (ScoreUI.score >= 60)
         {
-            spawnRate = 6;
+            spawnRate = 8;
         }
         
         

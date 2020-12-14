@@ -33,6 +33,8 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
             Destroy(other.gameObject);
+            FindObjectOfType<SoundManager>().Play("death");
+
             ScoreUI.IncrementScore();
             SpawnManager.activeEnemies = 0;
         }

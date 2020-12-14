@@ -39,7 +39,7 @@ public class PickUpSpawner : MonoBehaviour
         //random X in bounds
         int randX = Random.Range(leftBound, rightBound);
 
-        Vector3 pickUpSpawnLocation = new Vector3(randX, 1, roadOffset);
+        Vector3 pickUpSpawnLocation = new Vector3(randX, 2, roadOffset);
         roadOffset += roadLength;
 
         //pickUp randomizer

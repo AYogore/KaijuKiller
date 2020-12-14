@@ -18,6 +18,8 @@ public class PickUpData : MonoBehaviour
         if(other.tag == "Player")
         {
             Destroy(this.gameObject);
+            FindObjectOfType<SoundManager>().Play("coin");
+
             ScoreUI.IncrementScore(score);
         }
     }

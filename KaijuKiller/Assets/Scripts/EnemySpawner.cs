@@ -50,27 +50,27 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (ScoreUI.score >= 10)
         {
-            spawnRate = 1;
+            spawnRate = 3;
         }
         
         else if (ScoreUI.score >= 30)
         {
-            spawnRate = 3;
+            spawnRate = 4;
         }
 
         else if (ScoreUI.score >= 50)
         {
-            spawnRate = 5;
+            spawnRate = 6;
         }
         
         else if (ScoreUI.score >= 70)
         {
-            spawnRate = 7;
+            spawnRate = 8;
         }
 
 
         //randomizer so enemies dont always spawn
-        int enemyRandom = Random.Range(1, 20); //d20 cuz dnd lawl
+        int enemyRandom = Random.Range(1, 10); //d20 cuz dnd lawl
 
         if(enemyRandom <= spawnRate)
         {

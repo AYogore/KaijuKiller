@@ -35,10 +35,10 @@ public class EnvironmentSpawn : MonoBehaviour
 
         //random X in bounds
         int leftTileX = -40;
-        int rightTileX = 10;
+        int rightTileX = 8;
 
-        Vector3 eTileLSpawnLocation = new Vector3(leftTileX, 0, roadOffset);
-        Vector3 eTileRSpawnLocation = new Vector3(rightTileX, 0, roadOffset);
+        Vector3 eTileLSpawnLocation = new Vector3(leftTileX, 0.1f, roadOffset);
+        Vector3 eTileRSpawnLocation = new Vector3(rightTileX, 0.1f,roadOffset);
 
         Instantiate(randETile, eTileLSpawnLocation, randETile.transform.rotation);
         Instantiate(randETile, eTileRSpawnLocation, randETile.transform.rotation);

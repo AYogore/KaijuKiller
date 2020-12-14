@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     private GameObject firepoint;
 
     
-    private float fireRate = 2;
+    private float fireRate = 5;
     private bool canShoot = true;
     // Update is called once per frame
     void Update()
@@ -37,6 +37,8 @@ public class PlayerShoot : MonoBehaviour
         Instantiate(bulletPrefab, firepoint.transform.position, bulletPrefab.transform.rotation);
         canShoot = false;
         float wait = 1 / fireRate;
+        FindObjectOfType<SoundManager>().Play("fire");
+
         yield return new WaitForSeconds(wait);
         canShoot = true;
     }
